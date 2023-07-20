@@ -40,6 +40,15 @@ function Btn() {
   return <button>{logged ? 'Enter' : text}</button>
 }
 
+function WhoAmI({name, surname, link}) {
+  return (
+    <div>
+      <h1>My name is {name.firstName}, surname is - {surname}</h1>
+      <a href={link}>My profile</a>
+    </div>
+  )
+}
+
 function App() {
   return (
     <div className="App">
@@ -48,9 +57,44 @@ function App() {
       </StrictMode>
       <Field/>
       <Btn/>
+      <br />
+      <br />
+      <hr />
+      <WhoAmI name={{firstName: 'John'}} surname="Smith" link="facebook.com"/>
+      <WhoAmI name={{firstName: 'Alex'}} surname="Shepard" link="facebook.com/1"/>
     </div>
   );
 }
+
+// ---------------------------------------------------
+
+// function WhoAmI({name, surname, link}) {
+//   return (
+//     <div>
+//       <h1>My name is {name()}, surname is - {surname}</h1>
+//       <a href={link}>My profile</a>
+//     </div>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <StrictMode>
+//         <Header/>
+//       </StrictMode>
+//       <Field/>
+//       <Btn/>
+//       <br />
+//       <br />
+//       <hr />
+//       <WhoAmI name={() => {return 'John'}} surname="Smith" link="facebook.com"/>
+//       <WhoAmI name={() => {return 'Alex'}} surname="Shepard" link="facebook.com/1"/>
+//     </div>
+//   );
+// }
+
+// ---------------------------------------------------
 
 export {Header};
 export default App;
