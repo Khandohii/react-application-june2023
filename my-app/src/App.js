@@ -1,5 +1,5 @@
 import React, {StrictMode} from 'react';
-import { Component, Fragment } from "react";
+import { Component } from "react";
 import './App.css';
 
 const Header = () => {
@@ -70,7 +70,7 @@ class WhoAmI extends Component {
 
     console.log(this);
     return (
-      <Fragment>
+      <>
         <br />
         <br />
         
@@ -85,7 +85,7 @@ class WhoAmI extends Component {
           <input type="text" onChange={(e) => this.commitInputChanges(e, 'yellow')} />
         </form>
 
-      </Fragment>
+      </>
     )
   }
 }
