@@ -1,21 +1,11 @@
 import React, {StrictMode} from 'react';
 import { Component } from "react";
+import styled from 'styled-components';
 import './App.css';
 
 const Header = () => {
   return <h2>Hello world!</h2>
 }
-
-// const Field = () => {
-//   const holder = 'Enter here';
-//   const styledField = {
-//     width: '300px',
-//   }
-//   return <input 
-//           type="text" 
-//           placeholder={holder} 
-//           style={styledField} />
-// }
 
 class Field extends React.Component{
   render() {
@@ -32,14 +22,41 @@ class Field extends React.Component{
 
 function Btn() {
   const text = 'Log in';
-  // const res = () => {
-  //   return 'Log in';
-  // }
-  // const p = <p>Log in</p>;
   const logged = true;
 
   return <button>{logged ? 'Enter' : text}</button>
 }
+
+const EmpItem = styled.div`
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+  text-align: left;
+
+  a{
+    display: block;
+    margin: 10px 0 10px 0;
+    color: ${props => props.active ? 'orange' : 'black'};
+  }
+  
+  input{
+    display: block;
+    margin-top: 10px;
+  }
+`;
+
+const HeaderText = styled.h2`
+  font-size: 22px;
+`;
+
+export const Button = styled.button`
+  display: block;
+  padding: 5px 15px;
+  background-color: gold;
+  border: 1px solid rgba(0, 0, 0, .2);
+  box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+`;
 
 class WhoAmI extends Component {
   constructor(props) {
@@ -70,14 +87,14 @@ class WhoAmI extends Component {
 
     console.log(this);
     return (
-      <>
+      <EmpItem active>
         <br />
         <br />
         
-        <button onClick={this.nextYear}>{this.state.text}</button>
-        <h1>My name is {name}, surname is - {surname}, 
+        <Button onClick={this.nextYear}>{this.state.text}</Button>
+        <HeaderText>My name is {name}, surname is - {surname}, 
             age - {years}, 
-            position - {position}</h1>
+            position - {position}</HeaderText>
         <a href={link}>My profile</a>
 
         <form>
@@ -85,10 +102,15 @@ class WhoAmI extends Component {
           <input type="text" onChange={(e) => this.commitInputChanges(e, 'yellow')} />
         </form>
 
-      </>
+      </EmpItem>
     )
   }
 }
+
+const Wrapper = styled.div`
+  width: 600px;
+  margin: 80px auto 0 auto;
+`;
 
 function App() {
   return (
@@ -101,41 +123,13 @@ function App() {
       <br />
       <br />
       <hr />
-      <WhoAmI name='John' surname="Smith" link="facebook.com"/>
-      <WhoAmI name='Alex' surname="Shepard" link="facebook.com/1"/>
+      <Wrapper>
+        <WhoAmI name='John' surname="Smith" link="facebook.com"/>
+        <WhoAmI name='Alex' surname="Shepard" link="facebook.com/1"/>
+      </Wrapper>
     </div>
   );
 }
-
-// ---------------------------------------------------
-
-// function WhoAmI({name, surname, link}) {
-//   return (
-//     <div>
-//       <h1>My name is {name()}, surname is - {surname}</h1>
-//       <a href={link}>My profile</a>
-//     </div>
-//   )
-// }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <StrictMode>
-//         <Header/>
-//       </StrictMode>
-//       <Field/>
-//       <Btn/>
-//       <br />
-//       <br />
-//       <hr />
-//       <WhoAmI name={() => {return 'John'}} surname="Smith" link="facebook.com"/>
-//       <WhoAmI name={() => {return 'Alex'}} surname="Shepard" link="facebook.com/1"/>
-//     </div>
-//   );
-// }
-
-// ---------------------------------------------------
 
 export {Header};
 export default App;
