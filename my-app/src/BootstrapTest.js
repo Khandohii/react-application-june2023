@@ -1,12 +1,14 @@
 
 import {Container, Row, Col, Accordion, Button, Form } from 'react-bootstrap';
 
-const BootstrapTest = () => {
+const BootstrapTest = (props) => {
     return (
         <Container className='mt-5 mb-5'>
             <Row>
                 <Col>
-                    <Form>
+                    {props.left}
+                    
+                    {/* <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" />
@@ -25,11 +27,12 @@ const BootstrapTest = () => {
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
-                    </Form>
+                    </Form> */}
                 </Col>
 
                 <Col>
-                    <Accordion defaultActiveKey="0">
+                    {props.right}
+                    {/* <Accordion defaultActiveKey="0">
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>Accordion Item #1</Accordion.Header>
                             <Accordion.Body>
@@ -54,7 +57,7 @@ const BootstrapTest = () => {
                                 culpa qui officia deserunt mollit anim id est laborum.
                             </Accordion.Body>
                         </Accordion.Item>
-                    </Accordion>
+                    </Accordion> */}
                 </Col>
             </Row>
         </Container>

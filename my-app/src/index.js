@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { Button } from './App';
-import BootstrapTest from './BootstrapTest';
 import styled from 'styled-components';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -42,7 +41,6 @@ root.render(
   <StrictMode>
     <App/>
     <BigButton as={'a'}>Send Report</BigButton>
-    <BootstrapTest/>
   </StrictMode>
 );
 
